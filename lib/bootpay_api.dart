@@ -130,10 +130,12 @@ class BootpayApi {
 
     String? message = result["message"];
     if (message == null) message = result["msg"];
+    if (message == null) message = result["data"];
 
     //confirm 생략
     if (method == 'onDone' || method == 'BootpayDone') {
-      if (onDone != null) onDone(jsonEncode(result["data"]));
+      // if (onDone != null) onDone(jsonEncode(result["data"]));
+      if (onDone != null) onDone(result["message"]);
     } else if (method == 'onReady' || method == 'BootpayReady') {
       if (onReady != null) onReady(message);
     } else if (method == 'onCancel' || method == 'BootpayCancel') {
