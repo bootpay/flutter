@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="kr.co.bootpay.bootpay_api">
+
+    <application>
+        <activity android:name="kr.co.bootpay.bootpay_api.BootpayActivity" android:theme="@style/Theme.AppCompat"/>
+        <activity android:name="kr.co.bootpay.bootpay_api.BootpayActivityBio" android:theme="@style/Theme.Transparent"/>
+    </application>
+
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+</manifest>
