@@ -1,3 +1,6 @@
+## 3.1.21
+* Theme.AppCompat 관련 버그 수정 시도 
+
 ## 3.1.2
 * request로 비밀번호 간편결제 호출시 토큰 관련 버그 수정, android, ios version update 
 
