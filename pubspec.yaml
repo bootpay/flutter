@@ -1,6 +1,6 @@
 name: bootpay_api
 description: Bootpay Flutter plugin. This plugin supports both Android and iOS.
-version: 3.1.21
+version: 3.1.3
 homepage: https://www.bootpay.co.kr
 repository: https://github.com/bootpay/flutter
 documentation: https://docs.bootpay.co.kr
