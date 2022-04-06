@@ -81,6 +81,9 @@ import kr.co.bootpay.pref.UserInfo;
 import kr.co.bootpay.rest.BootpayBioRestImplement;
 import kr.co.bootpay.rest.model.ResDefault;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static androidx.biometric.BiometricManager.BIOMETRIC_SUCCESS;
 
 //import android.content.Intent;
@@ -697,8 +700,18 @@ public class BootpayActivityBio extends FlutterFragmentActivity implements Bootp
     @Override
     public void callbackEasyTransaction(String data) {
         progress.dismiss();
-        setFinishData("onDone", data);
-        finish();
+
+        try {
+            JSONObject jsonObject = new JSONObject(data);
+            setFinishData("onDone", jsonObject.get("data").toString());
+            finish();
+//            if(done != null) done.onDone(jsonObject.get("data").toString());
+        } catch (JSONException e) {
+            setFinishData("onDone", data);
+            finish();
+            e.printStackTrace();
+        }
+
 //        DoneListener done = CurrentBioRequest.getInstance().done;
 //        if(done != null) done.onDone(data);
     }
@@ -875,7 +888,13 @@ public class BootpayActivityBio extends FlutterFragmentActivity implements Bootp
         CurrentBioRequest.getInstance().listener = null;
         CurrentBioRequest.getInstance().activity = this;
 
-        if(requestCode == 9999 && resultCode > 0) {
+        if(resultCode == 9876) {
+            setResult(resultCode, data);
+            finish();
+            return;
+        }
+
+        if(requestCode == 9999) {
             //wallet 재갱신
             if(CurrentBioRequest.getInstance().type == CurrentBioRequest.REQUEST_TYPE_VERIFY_PASSWORD) {
                 //지문인식 후

@@ -57,6 +57,8 @@ class BootpayApi {
       //   params,
       // ) as FutureOr<Map<dynamic, dynamic>>);
 
+      // print("--- result");
+      // print(result);
 
       String? method = result["method"];
       if (method == null) method = result["action"];
@@ -76,7 +78,8 @@ class BootpayApi {
       } else if (method == 'onError' || method == 'BootpayError') {
         if (onError != null) onError(message);
       } else if (result['receipt_id'] != null && result['receipt_id'].isNotEmpty) {
-        if (onDone != null) onDone(jsonEncode(result));
+        // if (onDone != null) onDone(jsonEncode(result));
+        if (onDone != null) onDone(message);
       } else if (method == 'onConfirm' || method == 'BootpayConfirm') {
         if (onReady != null) onReady(message);
       }
