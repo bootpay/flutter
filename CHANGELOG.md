@@ -1,3 +1,6 @@
+## 3.1.32
+* android 'AAPT: error: resource style/Theme.AppCompat.Transparent.NoActionBar' 관련 버그 수정 
+
 ## 3.1.31
 * 생체인증 결제시 onDone 포맷을 일반결제 포맷과 동일하게 수정 
 * Theme.AppCompat 관련 버그 수정 시도

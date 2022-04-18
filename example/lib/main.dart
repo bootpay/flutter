@@ -9,7 +9,6 @@ import 'package:bootpay_api/model/extra.dart';
 import 'package:bootpay_api/model/user.dart';
 import 'package:bootpay_api/model/item.dart';
 import 'package:http/http.dart' as http;
-import 'package:uuid/uuid.dart';
 
 
 void main() => runApp(MyApp());
@@ -32,6 +31,8 @@ class TestPage extends StatefulWidget {
 class TestPageState extends State<TestPage> {
 //  String _platformVersion = 'Unknown';
 
+
+  var userId = "123421345671223";
 
   @override
   void initState() {
@@ -120,6 +121,7 @@ class TestPageState extends State<TestPage> {
 //    payload.us
 
     User user = User();
+
     user.username = "사용자 이름";
     user.email = "user1234@gmail.com";
     user.area = "서울";
@@ -204,6 +206,7 @@ class TestPageState extends State<TestPage> {
 //    payload.us
 
     User user = User();
+    user.id = userId;
     user.username = "사용자 이름";
     user.email = "user1234@gmail.com";
     user.area = "서울";
@@ -264,7 +267,7 @@ class TestPageState extends State<TestPage> {
 
 
     Map<String, dynamic> body = {
-      "user_id": "12342134567",
+      "user_id": userId,
 //      "user_id": Uuid().v1(),
       "email": "test1234@gmail.com",
       "name": "테스트 유저",

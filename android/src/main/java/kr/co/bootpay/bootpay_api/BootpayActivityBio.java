@@ -701,11 +701,12 @@ public class BootpayActivityBio extends FlutterFragmentActivity implements Bootp
     public void callbackEasyTransaction(String data) {
         progress.dismiss();
 
+        Log.d("bootpay", "callbackEasyTransaction: " + data);
+
         try {
             JSONObject jsonObject = new JSONObject(data);
             setFinishData("onDone", jsonObject.get("data").toString());
             finish();
-//            if(done != null) done.onDone(jsonObject.get("data").toString());
         } catch (JSONException e) {
             setFinishData("onDone", data);
             finish();
